@@ -1,0 +1,10 @@
+{
+  "ids": {
+    "Users": 2
+  },
+  "models": {
+    "Users": {
+      "1": "{\"firstname\":\"string\",\"middlename\":\"string\",\"lastname\":\"string\",\"email\":\"string\",\"phoneNo\":\"string\",\"role\":\"string\",\"address\":\"string\",\"createdOn\":\"string\",\"modifiedOn\":\"string\",\"id\":1}"
+    }
+  }
+}
