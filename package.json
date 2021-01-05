@@ -6,8 +6,8 @@
     "loopback-application",
     "loopback"
   ],
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "engines": {
     "node": ">=10.16"
   },
@@ -28,7 +28,7 @@
     "docker:build": "docker build -t loopback-starter .",
     "docker:run": "docker run -p 3000:3000 -d loopback-starter",
     "premigrate": "npm run build",
-    "migrate": "node ./dist/migrate",
+    "migrate": "node ./dist/src/migrate",
     "preopenapi-spec": "npm run build",
     "openapi-spec": "node ./dist/openapi-spec",
     "rebuild": "yarn run clean && yarn run build",
@@ -50,19 +50,29 @@
   "dependencies": {
     "@loopback/boot": "^3.1.1",
     "@loopback/core": "^2.13.0",
+    "@loopback/logging": "^0.4.4",
     "@loopback/repository": "^3.2.1",
     "@loopback/rest": "^9.1.0",
     "@loopback/rest-explorer": "^3.0.4",
     "@loopback/service-proxy": "^3.0.4",
+    "bcrypt": "^5.0.0",
+    "dotenv": "^8.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "loopback-connector-postgresql": "^5.3.0",
+    "loopback4-authentication": "^4.0.1",
+    "loopback4-authorization": "^3.1.1",
+    "loopback4-soft-delete": "^3.0.0",
     "tslib": "^2.0.0"
   },
   "devDependencies": {
     "@loopback/build": "^6.2.7",
-    "source-map-support": "^0.5.19",
-    "@loopback/testlab": "^3.2.9",
-    "@types/node": "^10.17.45",
     "@loopback/eslint-config": "^10.0.3",
+    "@loopback/testlab": "^3.2.9",
+    "@types/bcrypt": "^3.0.0",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/node": "^10.17.45",
     "eslint": "^7.13.0",
+    "source-map-support": "^0.5.19",
     "typescript": "~4.0.5"
   }
 }
