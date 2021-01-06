@@ -1,7 +1,11 @@
-import {Entity, model, property} from '@loopback/repository';
+import { Entity, model, property, belongsTo } from '@loopback/repository';
+import { IAuthUser } from 'loopback4-authentication';
+import { Customer } from './customer.model';
+import { Role } from './role.model';
+import { SoftDeleteEntity } from 'loopback4-soft-delete';
 
 @model()
-export class Users extends Entity {
+export class Users extends SoftDeleteEntity implements IAuthUser {
   @property({
     type: 'number',
     id: true,
@@ -54,6 +58,28 @@ export class Users extends Entity {
   })
   modifiedOn?: string;
 
+  @property({
+    type: 'string',
+  })
+  password?: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  username: string;
+
+  @property({
+    type: 'array',
+    itemType: 'string',
+  })
+  permissions: string[];
+
+  @belongsTo(() => Customer)
+  customerId: number;
+
+  @belongsTo(() => Role)
+  roleId: number;
 
   constructor(data?: Partial<Users>) {
     super(data);
