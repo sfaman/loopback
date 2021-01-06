@@ -12,9 +12,10 @@ import { HttpErrors } from '@loopback/rest';
 import bcrypt from 'bcrypt';
 import { CustomerRepository } from './customer.repository';
 import { RoleRepository } from './role.repository';
+import { SoftCrudRepository } from 'loopback4-soft-delete';
 
 const saltRounds = 10;
-export class UsersRepository extends DefaultCrudRepository<
+export class UsersRepository extends SoftCrudRepository<
   Users,
   typeof Users.prototype.id,
   UsersRelations

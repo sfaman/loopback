@@ -47,9 +47,6 @@ export class MySequence implements SequenceHandler {
         Referer = ${request.headers.referer}
         User Agent = ${request.headers['user-agent']}
         Remote Address = ${request.connection.remoteAddress}`);
-      if (request.headers.referer !== process.env.ALLOWED_ORIGIN) {
-        throw new HttpErrors.Forbidden('Origin is not allowed');
-      }
       const route = this.findRoute(request);
       const args = await this.parseParams(request, route);
       request.body = args[args.length - 1];

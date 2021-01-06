@@ -2,9 +2,10 @@ import { Entity, model, property, belongsTo } from '@loopback/repository';
 import { IAuthUser } from 'loopback4-authentication';
 import { Customer } from './customer.model';
 import { Role } from './role.model';
+import { SoftDeleteEntity } from 'loopback4-soft-delete';
 
 @model()
-export class Users extends Entity implements IAuthUser {
+export class Users extends SoftDeleteEntity implements IAuthUser {
   @property({
     type: 'number',
     id: true,
